@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm — Sweet Bakery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .detail-wrap { padding: 120px 0 80px; }
+    .breadcrumb-wrap { padding: 80px 0 10px; background: linear-gradient(135deg,#FDF0EB,#FDF7F4); }
+    .breadcrumb-item a { color: var(--primary); }
+    .detail-img {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(200,97,74,.12);
+    }
+    .detail-img img { width: 100%; height: 400px; object-fit: cover; }
+    .detail-content { padding: 10px 0; }
+    .detail-category {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--primary);
+      background: var(--secondary); padding: 4px 14px; border-radius: 10px;
+      display: inline-block; margin-bottom: 12px;
+    }
+    .detail-name { font-size: 2rem; color: var(--accent); margin-bottom: 8px; }
+    .detail-rating { color: #f5a623; font-size: 14px; margin-bottom: 12px; }
+    .detail-price { font-size: 1.8rem; color: var(--primary); font-weight: 700; margin-bottom: 20px; }
+    .detail-price del { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    .detail-desc { color: var(--text-muted); margin-bottom: 20px; line-height: 1.8; }
+    .detail-info { background: var(--bg); border-radius: 14px; padding: 20px; margin-bottom: 24px; }
+    .detail-info p { font-size: 13px; color: var(--text-muted); margin: 0 0 8px; }
+    .detail-info p strong { color: var(--accent); }
+    .qty-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .qty-btn {
+      width: 36px; height: 36px; border: 1.5px solid var(--border);
+      border-radius: 50%; background: #fff; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all .2s;
+    }
+    .qty-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .qty-num { font-size: 18px; font-weight: 700; min-width: 30px; text-align: center; }
+    .btn-buy {
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 30px; padding: 13px 32px;
+      font-size: 15px; font-weight: 600; transition: all .25s;
+    }
+    .btn-buy:hover { background: var(--accent); }
+    /* Related products */
+    .related-section { padding: 60px 0; background: var(--bg); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
+      Sweet<span class="brand-highlight">Bakery</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html#about">Về chúng tôi</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#services">Dịch vụ</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#pricing">Bảng giá</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên hệ</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link btn-cart-nav" href="cart.html">
+            <i class="bi bi-cart3"></i><span id="cartBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-wrap">
+  <div class="container">
+    <nav>
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="products.html">Sản phẩm</a></li>
+        <li class="breadcrumb-item active" id="bcName">Chi tiết</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- DETAIL CONTENT -->
+<div class="detail-wrap">
+  <div class="container">
+    <div class="row g-5" id="productDetail">
+      <!-- Filled by JS -->
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border" style="color:var(--primary)"></div>
+        <p class="mt-3 text-muted">Đang tải sản phẩm...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<section class="related-section">
+  <div class="container">
+    <h4 style="color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:24px">Sản phẩm liên quan</h4>
+    <div class="row g-4" id="relatedGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="footer-brand"><div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>Sweet Bakery</div>
+        <p class="footer-desc">Tiệm bánh handmade hàng đầu TP.HCM.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">Danh mục</div>
+        <ul class="footer-links">
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="service1.html">Dịch vụ</a></li>
+          <li><a href="about.html">Về chúng tôi</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">Liên hệ</div>
+        <ul class="footer-links">
+          <li><a href="#">📞 0909 123 456</a></li>
+          <li><a href="#">✉ order@sweetbakery.vn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery.</div></div>
+</footer>
+
+<!-- Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="toastMsg" class="toast align-items-center text-bg-success border-0">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">Đã thêm vào giỏ!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/cart.js"></script>
+<script>
+// Dữ liệu sản phẩm (dùng chung với products.html)
+const PRODUCTS = {
+  1: { id:1, name:'Bánh Sinh Nhật Dâu Tây', cat:'Sinh nhật', price:350000, oldPrice:420000,
+       img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=400&fit=crop',
+       desc:'Bông lan mềm mịn được làm từ bột mì số 11 nhập khẩu, kem tươi whipping cream Anchor, topping dâu tây Đà Lạt tươi mỗi ngày. Không phẩm màu tổng hợp, không chất bảo quản. Thích hợp cho sinh nhật, kỷ niệm gia đình.',
+       size:'20cm (6–8 người)', bh:'24h sau khi nhận', ship:'Giao trong 2–4h tại TP.HCM', rating:4.9, reviews:128 },
+  2: { id:2, name:'Bánh Sinh Nhật Chocolate', cat:'Sinh nhật', price:420000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=400&fit=crop',
+       desc:'Nhiều tầng chocolate Valrhona đậm đà từ Pháp, lớp ganache mịn, trang trí hoa tươi tự nhiên. Thích hợp cho những người yêu thích vị chocolate đậm đà, tinh tế.',
+       size:'22cm (8–10 người)', bh:'24h sau khi nhận', ship:'Giao trong 2–4h tại TP.HCM', rating:4.8, reviews:95 },
+  3: { id:3, name:'Bánh Matcha Nhật Bản', cat:'Sinh nhật', price:380000, oldPrice:450000,
+       img:'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&h=400&fit=crop',
+       desc:'Bột matcha Uji Nhật Bản hảo hạng, vị đắng nhẹ tinh tế đặc trưng, kem tươi nhẹ ngọt không ngấy. Lớp bánh xốp nhẹ, topping đậu đỏ và mochi. Lựa chọn hoàn hảo cho người thích vị thanh mát.',
+       size:'20cm (6–8 người)', bh:'24h sau khi nhận', ship:'Giao trong 2–4h tại TP.HCM', rating:4.9, reviews:74 },
+  4: { id:4, name:'Cupcake Chocolate Box 6', cat:'Cupcake', price:180000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1587668178277-295251f900ce?w=600&h=400&fit=crop',
+       desc:'6 cupcake chocolate đậm đà, kem bơ Swiss meringue phủ đỉnh đẹp mắt. Đóng hộp cao cấp, phù hợp tặng quà sinh nhật, dịp lễ. Giao kèm thiệp viết tay miễn phí.',
+       size:'Hộp 6 chiếc', bh:'12h sau khi nhận', ship:'Giao trong 2–3h', rating:4.8, reviews:210 },
+  5: { id:5, name:'Cupcake Vanilla Box 12', cat:'Cupcake', price:320000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1519869325930-281384150729?w=600&h=400&fit=crop',
+       desc:'12 cupcake vanilla Madagascar thơm ngon, kem bơ Italian meringue nhiều màu pastel cực xinh. Thích hợp tiệc sinh nhật nhỏ, tiệc văn phòng, quà tặng.',
+       size:'Hộp 12 chiếc', bh:'12h sau khi nhận', ship:'Giao trong 2–3h', rating:4.7, reviews:183 },
+  6: { id:6, name:'Bánh Cưới 3 Tầng Classic', cat:'Bánh cưới', price:2500000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&h=400&fit=crop',
+       desc:'Bánh cưới 3 tầng thanh lịch, hoa đường fondant tinh xảo, thiết kế hoàn toàn theo yêu cầu. Tư vấn miễn phí, nếm thử trước ngày cưới. Vận chuyển bằng xe chuyên dụng có điều hòa.',
+       size:'3 tầng (~50 người)', bh:'Theo thỏa thuận', ship:'Xe chuyên dụng', rating:5.0, reviews:42 },
+  7: { id:7, name:'Macaron Pháp Mix 8 Vị', cat:'Macaron', price:220000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&h=400&fit=crop',
+       desc:'8 chiếc macaron Pháp làm theo công thức truyền thống, nhiều màu sắc bắt mắt. 8 vị: vanilla, dâu, chanh, pistachio, cà phê, raspberry, chocolate, caramel muối.',
+       size:'Hộp 8 chiếc', bh:'2 ngày trong tủ lạnh', ship:'Giao trong 2–3h', rating:4.9, reviews:156 },
+  8: { id:8, name:'Tiramisu Ý Truyền Thống', cat:'Mousse', price:280000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&h=400&fit=crop',
+       desc:'Tiramisu làm theo công thức Ý truyền thống với mascarpone Galbani, cà phê espresso đậm, biscuit Savoiardi nhập khẩu. Không dùng kem thay thế, vị chuẩn như nhà hàng Ý.',
+       size:'Phần đơn (300g)', bh:'2 ngày trong tủ lạnh', ship:'Giao trong 2–3h', rating:4.9, reviews:88 },
+  9: { id:9, name:'Gift Box Sinh Nhật Deluxe', cat:'Quà tặng', price:450000, oldPrice:null,
+       img:'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&h=400&fit=crop',
+       desc:'Hộp quà sang trọng gồm: 4 cupcake đặc biệt + 6 macaron mix vị + 2 brownie chocolate. Hộp cứng cao cấp, giấy lụa, ribbon, kèm thiệp viết tay theo yêu cầu. Hoàn hảo cho mọi dịp tặng quà.',
+       size:'Hộp mix', bh:'1 ngày', ship:'Giao trong 2–3h', rating:4.8, reviews:67 },
+};
+
+$(document).ready(function () {
+  updateCartBadge();
+  $(window).on('scroll', function () {
+    $('#mainNav').toggleClass('scrolled', $(this).scrollTop() > 30);
+  });
+
+  // Đọc ID từ URL
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id')) || 1;
+  const p = PRODUCTS[id];
+
+  if (!p) {
+    $('#productDetail').html('<div class="col-12 text-center py-5"><h4>Không tìm thấy sản phẩm.</h4><a href="products.html" class="btn-primary-custom mt-3">← Quay lại</a></div>');
+    return;
+  }
+
+  // Breadcrumb
+  $('#bcName').text(p.name);
+  document.title = p.name + ' — Sweet Bakery';
+
+  // Render chi tiết
+  const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
+  const priceHtml = p.oldPrice
+    ? `${p.price.toLocaleString('vi-VN')}đ <del style="font-size:1rem;color:var(--text-muted);font-weight:400">${p.oldPrice.toLocaleString('vi-VN')}đ</del>`
+    : `${p.price.toLocaleString('vi-VN')}đ`;
+
+  $('#productDetail').html(`
+    <div class="col-md-6">
+      <div class="detail-img">
+        <img src="${p.img}" alt="${p.name}">
+      </div>
+    </div>
+    <div class="col-md-6 detail-content">
+      <span class="detail-category">${p.cat}</span>
+      <h1 class="detail-name">${p.name}</h1>
+      <div class="detail-rating">
+        <span style="color:#f5a623;font-size:16px">${stars}</span>
+        <span style="color:var(--text-muted);font-size:13px;margin-left:6px">${p.rating}/5 (${p.reviews} đánh giá)</span>
+      </div>
+      <div class="detail-price">${priceHtml}</div>
+      <p class="detail-desc">${p.desc}</p>
+      <div class="detail-info">
+        <p><strong>📏 Kích thước:</strong> ${p.size}</p>
+        <p><strong>🕐 Bảo quản:</strong> ${p.bh}</p>
+        <p><strong>🚚 Giao hàng:</strong> ${p.ship}</p>
+        <p style="margin:0"><strong>✅ Cam kết:</strong> Handmade, không chất bảo quản, hoàn tiền nếu không hài lòng</p>
+      </div>
+      <div class="qty-wrap">
+        <span style="font-size:14px;font-weight:600;color:var(--accent)">Số lượng:</span>
+        <button class="qty-btn" id="qtyMinus">−</button>
+        <span class="qty-num" id="qtyNum">1</span>
+        <button class="qty-btn" id="qtyPlus">+</button>
+      </div>
+      <div class="d-flex gap-3 flex-wrap">
+        <button class="btn-buy" onclick="buyNow(${p.id},'${p.name}',${p.price},'${p.img}')">
+          <i class="bi bi-cart-plus me-2"></i>Thêm vào giỏ
+        </button>
+        <a href="products.html" style="color:var(--text-muted);font-size:14px;display:flex;align-items:center;gap:4px">
+          <i class="bi bi-arrow-left"></i> Xem thêm sản phẩm
+        </a>
+      </div>
+    </div>
+  `);
+
+  // Qty buttons
+  let qty = 1;
+  $('#qtyMinus').on('click', function () { if (qty > 1) { qty--; $('#qtyNum').text(qty); } });
+  $('#qtyPlus').on('click', function () { qty++; $('#qtyNum').text(qty); });
+
+  window.buyNow = function(id, name, price, img) {
+    const q = parseInt($('#qtyNum').text());
+    for (let i = 0; i < q; i++) addToCart(id, name, price, img);
+  };
+
+  // Related: lấy 4 sản phẩm khác
+  const related = Object.values(PRODUCTS).filter(x => x.id !== id).slice(0, 4);
+  let relHtml = '';
+  related.forEach(r => {
+    relHtml += `
+      <div class="col-6 col-md-3">
+        <div class="product-card" style="background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden">
+          <img src="${r.img}" style="width:100%;height:160px;object-fit:cover">
+          <div style="padding:12px 14px">
+            <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:4px;font-family:'Playfair Display',serif">${r.name}</div>
+            <div style="color:var(--primary);font-weight:700;font-size:14px;margin-bottom:10px">${r.price.toLocaleString('vi-VN')}đ</div>
+            <a href="product-detail.html?id=${r.id}" class="btn-primary-custom" style="padding:7px 16px;font-size:13px;display:inline-flex">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>`;
+  });
+  $('#relatedGrid').html(relHtml);
+});
+</script>
+</body>
+</html>
