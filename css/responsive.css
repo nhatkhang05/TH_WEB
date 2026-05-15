@@ -1,0 +1,21 @@
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+    .swiper-banner {
+        height: auto;
+    }
+
+    .banner-img-wrap img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .about-tag-float {
+        left: 10px;
+    }
+
+    :root {
+        --section-gap: 60px;
+    }
+}

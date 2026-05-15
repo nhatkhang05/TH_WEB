@@ -1,12 +1,663 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Bakery — Tiệm Bánh Ngọt Handmade</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+
+    <!-- Logo bên trái -->
+    <a class="navbar-brand" href="index.html">
+      <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
+      Sweet<span class="brand-highlight">Bakery</span>
+    </a>
+
+    <!-- Hamburger mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu bên phải -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="#about">Về chúng tôi</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Dịch vụ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Bảng giá</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link btn-cart-nav" href="cart.html">
+            <i class="bi bi-cart3"></i>
+            <span id="cartBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     BANNER — Bootstrap Carousel + Swiper
+============================================================ -->
+<section id="banner">
+  <div class="container">
+    <!-- Search box trên banner -->
+    <div class="text-center mb-4">
+      <form class="banner-search d-inline-flex" id="searchForm" onsubmit="doSearch(); return false;">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bánh ngọt...">
+        <button type="submit">
+          <i class="bi bi-search me-1"></i> Tìm
+        </button>
+      </form>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper swiper-banner">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="row align-items-center g-4">
+            <div class="col-md-6 banner-content">
+              <span class="banner-tag">🎂 Mới nhất 2025</span>
+              <h1 class="banner-title">Bánh <span>Sinh Nhật</span> Thủ Công Tươi Mỗi Ngày</h1>
+              <p class="banner-desc">Handmade từ nguyên liệu nhập khẩu, không chất bảo quản. Đặt hàng trước 1 ngày, giao tận nơi TP.HCM.</p>
+              <div class="d-flex gap-3 flex-wrap">
+                <a href="products.html" class="btn-primary-custom">Đặt ngay <i class="bi bi-arrow-right"></i></a>
+                <a href="#about" class="btn-outline-custom">Tìm hiểu thêm</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="banner-img-wrap">
+                <img src="images/banner-1.jpg" alt="Bánh sinh nhật">
+                <div class="banner-badge b1">🎉 Giao trong 2h</div>
+                <div class="banner-badge b2">⭐ 4.9/5 (2.3k đánh giá)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="row align-items-center g-4">
+            <div class="col-md-6 banner-content">
+              <span class="banner-tag">🧁 Bestseller</span>
+              <h1 class="banner-title">Cupcake <span>Handmade</span> Đủ Mọi Hương Vị</h1>
+              <p class="banner-desc">Chocolate, vanilla, matcha, red velvet — mỗi chiếc đều là tác phẩm nghệ thuật từ tay nghề thợ bánh 10 năm kinh nghiệm.</p>
+              <div class="d-flex gap-3 flex-wrap">
+                <a href="products.html" class="btn-primary-custom">Xem ngay <i class="bi bi-arrow-right"></i></a>
+                <a href="#services" class="btn-outline-custom">Dịch vụ</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="banner-img-wrap">
+                <img src="images/banner-2.jpg" alt="Cupcake">
+                <div class="banner-badge b1">🧁 Box 6/12 chiếc</div>
+                <div class="banner-badge b2">💝 Tặng kèm thiệp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="row align-items-center g-4">
+            <div class="col-md-6 banner-content">
+              <span class="banner-tag">💍 Đặc biệt</span>
+              <h1 class="banner-title">Bánh <span>Cưới</span> Sang Trọng Theo Yêu Cầu</h1>
+              <p class="banner-desc">Thiết kế riêng theo chủ đề, từ tầng đơn đến 5 tầng. Tư vấn miễn phí, nếm thử tại cửa hàng.</p>
+              <div class="d-flex gap-3 flex-wrap">
+                <a href="#pricing" class="btn-primary-custom">Đăng ký tư vấn <i class="bi bi-arrow-right"></i></a>
+                <a href="products.html" class="btn-outline-custom">Xem mẫu</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="banner-img-wrap">
+                <img src="images/banner-3.jpg" alt="Bánh cưới">
+                <div class="banner-badge b1">💍 Thiết kế riêng</div>
+                <div class="banner-badge b2">🎨 100+ mẫu</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination mt-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT SECTION — col8 nội dung, col4 ảnh
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Bên trái col8: nội dung + link trang chi tiết -->
+      <div class="col-lg-8 about-text">
+        <div class="divider-candy"><span></span><em>🧁</em></div>
+        <h2 class="section-title">Về Sweet Bakery</h2>
+        <p>Sweet Bakery được thành lập từ năm 2015, là tiệm bánh handmade nổi tiếng tại TP.HCM với triết lý <strong>nguyên liệu sạch — không phẩm màu tổng hợp — không chất bảo quản</strong>. Chúng tôi mang đến những chiếc bánh không chỉ ngon mà còn an toàn cho cả gia đình.</p>
+        <p>Từ một tiệm bánh nhỏ ở quận 1, Sweet Bakery đã mở rộng thành chuỗi 5 cửa hàng khắp thành phố, phục vụ hơn <strong>50.000 khách hàng</strong> mỗi năm với các sản phẩm từ bánh sinh nhật, cupcake, macaron, tiramisu đến bánh cưới thiết kế theo yêu cầu.</p>
+
+        <!-- Thống kê nổi bật -->
+        <div class="about-stat">
+          <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-label">Khách hàng</div></div>
+          <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Chi nhánh</div></div>
+          <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Mẫu bánh</div></div>
+          <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Năm kinh nghiệm</div></div>
+        </div>
+
+        <a href="about.html" class="btn-primary-custom">
+          Tìm hiểu thêm <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Bên phải col4: ảnh đại diện -->
+      <div class="col-lg-4">
+        <div class="about-img-wrap">
+          <img src="images/about.jpg" alt="Thợ bánh Sweet Bakery">
+          <div class="about-tag-float">🏆 Top 10 Tiệm Bánh 2024</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES SECTION — col4 mỗi dịch vụ
+============================================================ -->
+<section id="services">
+  <div class="container">
+    <div class="text-center">
+      <div class="divider-candy justify-content-center"><span></span><em>🎂</em><span></span></div>
+      <h2 class="section-title">Dịch vụ của chúng tôi</h2>
+      <p class="section-sub">Hệ sinh thái dịch vụ bánh ngọt toàn diện — từ đặt hàng đến tận tay</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-cake2"></i></div>
+          <h5>Bánh Sinh Nhật</h5>
+          <p>Thiết kế theo yêu cầu, nhiều tầng. Nhận đặt trước 24h. Giao tận nơi TP.HCM trong ngày.</p>
+          <a href="service1.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-cup-hot"></i></div>
+          <h5>Cupcake & Muffin</h5>
+          <p>Box 6–24 chiếc đủ hương vị. Phù hợp quà tặng, tiệc văn phòng, sinh nhật nhỏ.</p>
+          <a href="service2.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-heart"></i></div>
+          <h5>Bánh Cưới</h5>
+          <p>Tư vấn miễn phí, nếm thử tại cửa hàng. Từ 1–5 tầng, thiết kế độc quyền theo ngày cưới.</p>
+          <a href="service3.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-stars"></i></div>
+          <h5>Bánh Theo Yêu Cầu</h5>
+          <p>In ảnh lên bánh, trang trí nhân vật, theme riêng theo sở thích. Chụp ảnh free tại cửa hàng.</p>
+          <a href="service1.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-gift"></i></div>
+          <h5>Hộp Quà Tặng</h5>
+          <p>Set quà gồm 3–6 loại bánh, đóng hộp cao cấp. Kèm thiệp viết tay, giao tận nơi.</p>
+          <a href="service2.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-people"></i></div>
+          <h5>Workshop Làm Bánh</h5>
+          <p>Lớp học cuối tuần cho mọi lứa tuổi. Tự tay làm bánh, mang về ăn. Nhóm tối đa 10 người.</p>
+          <a href="service3.html" class="service-link">Xem chi tiết <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO — Hàng 1: thành tựu | Hàng 2: testimonial carousel
+============================================================ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="text-center">
+      <div class="divider-candy justify-content-center"><span></span><em>🏆</em><span></span></div>
+      <h2 class="section-title">Thành tựu & Dự án</h2>
+      <p class="section-sub">Những cột mốc tự hào của Sweet Bakery qua hơn 10 năm</p>
+    </div>
+
+    <!-- Hàng 1: thành tựu dạng card -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="portfolio-card">
+          <img src="images/portfolio-1.jpg" alt="Giải thưởng">
+          <div class="portfolio-card-body">
+            <h6>🏆 Top 10 Tiệm Bánh Uy Tín 2024</h6>
+            <p>Được Hiệp hội F&B Việt Nam vinh danh trong top 10 cơ sở bánh ngọt uy tín nhất TP.HCM.</p>
+            <a href="about.html" class="btn btn-sm btn-outline-secondary rounded-pill">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="portfolio-card">
+          <img src="images/portfolio-2.jpg" alt="Khách hàng">
+          <div class="portfolio-card-body">
+            <h6>🌟 50.000+ Khách Hàng Hài Lòng</h6>
+            <p>Hơn 5 vạn đơn hàng được thực hiện hoàn hảo, tỉ lệ khách quay lại đạt 87%.</p>
+            <a href="about.html" class="btn btn-sm btn-outline-secondary rounded-pill">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="portfolio-card">
+          <img src="images/portfolio-3.jpg" alt="Chi nhánh">
+          <div class="portfolio-card-body">
+            <h6>🚀 Mở Rộng 5 Chi Nhánh</h6>
+            <p>Từ 1 cửa hàng nhỏ quận 1, nay Sweet Bakery có mặt tại Q.1, Q.3, Q.7, Bình Thạnh, Thủ Đức.</p>
+            <a href="about.html" class="btn btn-sm btn-outline-secondary rounded-pill">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hàng 2: Testimonial Bootstrap Carousel -->
+    <div class="text-center mb-3">
+      <h5 class="testimonial-heading">Khách hàng nói gì về chúng tôi</h5>
+    </div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Đặt bánh sinh nhật cho con gái, nhân viên tư vấn rất nhiệt tình. Bánh ra lò đúng như ảnh mẫu, kem tươi ngon không ngọt gắt. Cả nhà ai cũng khen!</p>
+            <div class="testimonial-author">Chị Nguyễn Phương Thảo — Quận 7, TP.HCM</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Mình order cupcake cho tiệc công ty 50 người, giao đúng giờ, hộp đẹp không bị hỏng. Mọi người ai cũng hỏi mua ở đâu. Sẽ đặt lại lần sau!</p>
+            <div class="testimonial-author">Anh Trần Minh Khoa — Bình Thạnh, TP.HCM</div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <p class="testimonial-text">Bánh cưới của Sweet Bakery đẹp không kém gì tiệm nước ngoài. Team thiết kế chịu khó sửa theo ý mình, giá cả hợp lý. Rất hài lòng với ngày cưới!</p>
+            <div class="testimonial-author">Cô dâu Lê Thu Hương — Quận 1, TP.HCM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING SECTION — Panel với modal
+============================================================ -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center">
+      <div class="divider-candy justify-content-center"><span></span><em>🎀</em><span></span></div>
+      <h2 class="section-title">Bảng giá dịch vụ</h2>
+      <p class="section-sub">Chọn gói phù hợp — Đặt hàng linh hoạt — Giao tận nơi</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <!-- Gói Cơ Bản -->
+      <div class="col-md-4">
+        <div class="pricing-card d-flex flex-column">
+          <div class="pricing-header">
+            <div class="pricing-name">Gói Cơ Bản</div>
+            <div class="pricing-price">350K <small>/ bánh</small></div>
+            <div class="pricing-sub">Bánh sinh nhật 1 tầng</div>
+          </div>
+          <div class="pricing-body flex-grow-1">
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Đường kính 20cm (6–8 người)</li>
+              <li><i class="bi bi-check-circle-fill"></i> 3 lựa chọn kem: vanilla, choco, matcha</li>
+              <li><i class="bi bi-check-circle-fill"></i> Viết chữ/tên miễn phí</li>
+              <li><i class="bi bi-check-circle-fill"></i> Tặng kèm nến + pháo giấy</li>
+              <li class="disabled"><i class="bi bi-x-circle"></i> In ảnh lên bánh</li>
+              <li class="disabled"><i class="bi bi-x-circle"></i> Thiết kế theo theme riêng</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <button class="btn-pricing" data-service="banh-sinh-nhat" data-bs-toggle="modal" data-bs-target="#serviceModal">Đăng ký ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gói Nâng Cao — featured -->
+      <div class="col-md-4">
+        <div class="pricing-card featured d-flex flex-column">
+          <div class="pricing-badge">Phổ biến nhất</div>
+          <div class="pricing-header">
+            <div class="pricing-name">Gói Nâng Cao</div>
+            <div class="pricing-price">650K <small>/ bánh</small></div>
+            <div class="pricing-sub">Bánh sinh nhật đặc biệt</div>
+          </div>
+          <div class="pricing-body flex-grow-1">
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Đường kính 24cm (10–12 người)</li>
+              <li><i class="bi bi-check-circle-fill"></i> 5 lựa chọn kem + topping tươi</li>
+              <li><i class="bi bi-check-circle-fill"></i> Viết chữ + trang trí hoa quả</li>
+              <li><i class="bi bi-check-circle-fill"></i> Tặng kèm nến + pháo + thiệp</li>
+              <li><i class="bi bi-check-circle-fill"></i> In ảnh lên bánh</li>
+              <li class="disabled"><i class="bi bi-x-circle"></i> Thiết kế theo theme riêng</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <button class="btn-pricing" data-service="banh-nang-cao" data-bs-toggle="modal" data-bs-target="#serviceModal">Đăng ký ngay</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gói VIP -->
+      <div class="col-md-4">
+        <div class="pricing-card d-flex flex-column">
+          <div class="pricing-header">
+            <div class="pricing-name">Gói VIP / Cưới</div>
+            <div class="pricing-price">2.5M+ <small>/ bánh</small></div>
+            <div class="pricing-sub">Thiết kế theo yêu cầu</div>
+          </div>
+          <div class="pricing-body flex-grow-1">
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Nhiều tầng (1–5 tầng)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Kem và topping cao cấp nhập khẩu</li>
+              <li><i class="bi bi-check-circle-fill"></i> Tư vấn + bản vẽ thiết kế riêng</li>
+              <li><i class="bi bi-check-circle-fill"></i> Nếm thử miễn phí tại cửa hàng</li>
+              <li><i class="bi bi-check-circle-fill"></i> Vận chuyển chuyên dụng</li>
+              <li><i class="bi bi-check-circle-fill"></i> Chụp ảnh sản phẩm miễn phí</li>
+            </ul>
+          </div>
+          <div class="pricing-footer">
+            <button class="btn-pricing" data-service="banh-cuoi" data-bs-toggle="modal" data-bs-target="#serviceModal">Đăng ký ngay</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT SECTION — 2 cột col6
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center">
+      <div class="divider-candy justify-content-center"><span></span><em>📞</em><span></span></div>
+      <h2 class="section-title">Kết nối với chúng tôi</h2>
+      <p class="section-sub">Chúng tôi luôn sẵn sàng hỗ trợ bạn</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Cột trái col6: thông tin công ty -->
+      <div class="col-md-6 contact-info">
+        <h5>Thông tin Sweet Bakery</h5>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
+          <div><strong>Địa chỉ chính</strong><span>123 Lê Lợi, Quận 1, TP. Hồ Chí Minh</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+          <div><strong>Hotline đặt bánh</strong><span>0909 123 456 (8:00 – 21:00 hàng ngày)</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+          <div><strong>Email</strong><span>order@sweetbakery.vn</span></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="bi bi-clock"></i></div>
+          <div><strong>Giờ mở cửa</strong><span>Thứ 2 – Chủ nhật: 7:00 – 21:00</span></div>
+        </div>
+        <div class="branches">
+          <h6><i class="bi bi-shop me-2"></i>Hệ thống chi nhánh</h6>
+          <p>🏪 Q.1: 123 Lê Lợi &nbsp;|&nbsp; Q.3: 456 Võ Văn Tần</p>
+          <p>🏪 Q.7: 789 Nguyễn Thị Thập &nbsp;|&nbsp; Bình Thạnh: 321 Xô Viết Nghệ Tĩnh</p>
+          <p>🏪 Thủ Đức: 147 Võ Văn Ngân</p>
+        </div>
+      </div>
+
+      <!-- Cột phải col6: Horizontal form -->
+      <div class="col-md-6">
+        <div class="contact-form-wrap">
+          <h5>Gửi tin nhắn cho chúng tôi</h5>
+          <!-- HORIZONTAL FORM: label col-sm-3, input col-sm-9 -->
+          <form id="contactForm" novalidate>
+            <div class="row mb-3 align-items-start">
+              <label for="cName" class="col-sm-3 col-form-label">Họ tên</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="cName" name="name" placeholder="Nguyễn Văn An">
+                <div class="error-msg" id="errName"></div>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-start">
+              <label for="cEmail" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="cEmail" name="email" placeholder="email@example.com">
+                <div class="error-msg" id="errEmail"></div>
+              </div>
+            </div>
+            <div class="row mb-3 align-items-start">
+              <label for="cMsg" class="col-sm-3 col-form-label">Nội dung</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="cMsg" name="message" rows="4" placeholder="Nội dung cần ít nhất 20 ký tự..."></textarea>
+                <div class="error-msg" id="errMsg"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9 offset-sm-3">
+                <button type="submit" class="btn-submit-contact">
+                  <i class="bi bi-send me-2"></i>Gửi tin nhắn
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="footer-brand">
+          <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
+          Sweet Bakery
+        </div>
+        <p class="footer-desc">Tiệm bánh handmade hàng đầu TP.HCM. Nguyên liệu sạch, không chất bảo quản, giao tận nơi trong ngày.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon" title="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="social-icon" title="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">Sản phẩm</div>
+        <ul class="footer-links">
+          <li><a href="products.html">Bánh sinh nhật</a></li>
+          <li><a href="products.html">Cupcake</a></li>
+          <li><a href="products.html">Bánh cưới</a></li>
+          <li><a href="products.html">Macaron</a></li>
+          <li><a href="products.html">Hộp quà tặng</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <div class="footer-title">Dịch vụ</div>
+        <ul class="footer-links">
+          <li><a href="service1.html">Đặt bánh online</a></li>
+          <li><a href="service2.html">Workshop làm bánh</a></li>
+          <li><a href="service3.html">Thiết kế theo yêu cầu</a></li>
+          <li><a href="about.html">Về chúng tôi</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">Chi nhánh</div>
+        <ul class="footer-links">
+          <li><a href="#">🏪 Q.1: 123 Lê Lợi — 0909 123 456</a></li>
+          <li><a href="#">🏪 Q.3: 456 Võ Văn Tần — 0909 234 567</a></li>
+          <li><a href="#">🏪 Q.7: 789 Nguyễn Thị Thập — 0909 345 678</a></li>
+          <li><a href="#">🏪 Bình Thạnh: 321 Xô Viết Nghệ Tĩnh</a></li>
+          <li><a href="#">🏪 Thủ Đức: 147 Võ Văn Ngân</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      © 2025 Sweet Bakery. Bản quyền thuộc về Sweet Bakery Vietnam. Thiết kế với 🧁 tại TP.HCM.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODAL FORM — Vertical layout (dùng chung mọi nút pricing)
+============================================================ -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="serviceModalLabel"><i class="bi bi-cake2 me-2"></i>Đăng ký dịch vụ bánh</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="modalForm" novalidate>
+
+          <!-- Vertical: label trên, input dưới -->
+          <div class="mb-3">
+            <label class="form-label" for="mName">Họ và tên *</label>
+            <input type="text" class="form-control" id="mName" placeholder="Nguyễn Văn An">
+            <div class="modal-error" id="mErrName">Vui lòng nhập họ tên.</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="mPhone">Số điện thoại *</label>
+            <input type="text" class="form-control" id="mPhone" placeholder="0909 xxx xxx">
+            <div class="modal-error" id="mErrPhone">Vui lòng nhập số điện thoại.</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="mEmail">Email *</label>
+            <input type="email" class="form-control" id="mEmail" placeholder="email@example.com">
+            <div class="modal-error" id="mErrEmail">Email không hợp lệ.</div>
+          </div>
+
+          <!-- Checkbox group dịch vụ -->
+          <div class="mb-3">
+            <label class="form-label">Dịch vụ quan tâm * (chọn ít nhất 1)</label>
+            <div class="form-check">
+              <input class="form-check-input svc-check" type="checkbox" id="svc1" value="banh-sinh-nhat">
+              <label class="form-check-label" for="svc1">Bánh Sinh Nhật Cơ Bản (từ 350K)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input svc-check" type="checkbox" id="svc2" value="banh-nang-cao">
+              <label class="form-check-label" for="svc2">Bánh Sinh Nhật Nâng Cao (từ 650K)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input svc-check" type="checkbox" id="svc3" value="banh-cuoi">
+              <label class="form-check-label" for="svc3">Bánh Cưới / VIP (từ 2.5M)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input svc-check" type="checkbox" id="svc4" value="cupcake">
+              <label class="form-check-label" for="svc4">Cupcake & Hộp quà tặng</label>
+            </div>
+            <div class="modal-error" id="mErrSvc">Vui lòng chọn ít nhất 1 dịch vụ.</div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label" for="mNote">Yêu cầu khác</label>
+            <textarea class="form-control" id="mNote" rows="3" placeholder="Ghi rõ số tầng, theme, màu sắc, ngày giao hàng..."></textarea>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- Button đóng -->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="bi bi-x-lg me-1"></i>Đóng
+        </button>
+        <!-- Button gửi -->
+        <button type="button" class="btn btn-modal-submit" id="btnModalSubmit">
+          <i class="bi bi-send me-1"></i>Gửi đăng ký
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast thông báo -->
+<div class="position-fixed bottom-0 end-0 p-3 toast-wrapper">
+  <div id="toastMsg" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody">Thành công!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/validation.js"></script>
+<script src="js/cart.js"></script>
+
 </body>
 </html>

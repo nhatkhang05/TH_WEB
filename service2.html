@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Làm Bánh — Sweet Bakery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .service-hero { padding: 120px 0 60px; background: linear-gradient(135deg,#F0F5FD,#FDF7F4); }
+    .service-hero img { width:100%;height:360px;object-fit:cover;border-radius:20px;box-shadow:0 20px 50px rgba(200,97,74,.15); }
+    .ws-card {
+      background:#fff;border-radius:16px;border:1px solid var(--border);
+      padding:24px;transition:all .3s;
+    }
+    .ws-card:hover { box-shadow:0 12px 36px rgba(200,97,74,.1); transform:translateY(-4px); }
+    .ws-icon { width:48px;height:48px;border-radius:12px;background:var(--secondary);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px; }
+    .ws-card h5 { font-size:1rem;color:var(--accent);margin-bottom:6px; }
+    .ws-card p { font-size:13px;color:var(--text-muted);margin:0; }
+    .schedule-item { background:var(--bg);border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;gap:16px;align-items:center; }
+    .schedule-date { background:var(--primary);color:#fff;border-radius:10px;padding:8px 14px;text-align:center;min-width:80px; }
+    .schedule-date .day { font-size:22px;font-weight:700;line-height:1; }
+    .schedule-date .month { font-size:11px;opacity:.85; }
+    .schedule-info h6 { color:var(--accent);margin-bottom:2px;font-size:14px; }
+    .schedule-info p { color:var(--text-muted);font-size:12px;margin:0; }
+    .other-services { background: var(--bg); border-radius: 16px; padding: 20px; }
+    .other-services h6 { color: var(--accent); font-family: 'Playfair Display',serif; margin-bottom: 14px; }
+    .other-svc-link { display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted);transition:color .2s; }
+    .other-svc-link:last-child { border:none; }
+    .other-svc-link:hover { color:var(--primary); }
+    .other-svc-link i { color:var(--primary); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
+      Sweet<span class="brand-highlight">Bakery</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html#about">Về chúng tôi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html#services">Dịch vụ</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#pricing">Bảng giá</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên hệ</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link btn-cart-nav" href="cart.html">
+            <i class="bi bi-cart3"></i><span id="cartBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="service-hero">
+  <div class="container">
+    <nav class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" style="color:var(--primary)">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="index.html#services" style="color:var(--primary)">Dịch vụ</a></li>
+        <li class="breadcrumb-item active">Workshop Làm Bánh</li>
+      </ol>
+    </nav>
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <div class="divider-candy"><span></span><em>👩‍🍳</em></div>
+        <h1 class="section-title">Workshop Làm Bánh Ngọt</h1>
+        <p style="color:var(--text-muted);margin-bottom:24px">Trải nghiệm làm bánh thủ công cùng đội ngũ thợ bánh chuyên nghiệp. Phù hợp cho mọi lứa tuổi, không cần kinh nghiệm.</p>
+        <a href="index.html#contact" class="btn-primary-custom">Đăng ký ngay <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=360&fit=crop" alt="Workshop làm bánh">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL -->
+<section style="padding:60px 0;background:#fff">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+
+        <h3 style="color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:16px">Các lớp workshop cuối tuần</h3>
+        <p style="color:var(--text-muted);margin-bottom:24px">Sweet Bakery tổ chức lớp học làm bánh mỗi cuối tuần tại cửa hàng, mỗi lớp tối đa 10 người để đảm bảo chất lượng hướng dẫn. Tất cả dụng cụ và nguyên liệu được chuẩn bị sẵn.</p>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="bi bi-cake2"></i></div>
+              <h5>Workshop Cupcake Cơ Bản</h5>
+              <p>Làm 12 cupcake, học kỹ thuật piping kem. Thời gian 3h. Dành cho người mới bắt đầu.</p>
+              <div style="margin-top:12px;font-weight:700;color:var(--primary)">350.000đ / người</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="bi bi-stars"></i></div>
+              <h5>Workshop Bánh Sinh Nhật</h5>
+              <p>Tự tay làm và trang trí 1 chiếc bánh sinh nhật hoàn chỉnh. Thời gian 4h.</p>
+              <div style="margin-top:12px;font-weight:700;color:var(--primary)">550.000đ / người</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="bi bi-heart"></i></div>
+              <h5>Workshop Macaron Pháp</h5>
+              <p>Học làm macaron theo công thức Pháp chuẩn. Thời gian 3.5h. Yêu cầu tối thiểu 16 tuổi.</p>
+              <div style="margin-top:12px;font-weight:700;color:var(--primary)">480.000đ / người</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ws-card">
+              <div class="ws-icon"><i class="bi bi-people"></i></div>
+              <h5>Workshop Nhóm / Team Building</h5>
+              <p>Dành cho nhóm 6–10 người. Có thể đặt lịch riêng. Phù hợp team building công ty.</p>
+              <div style="margin-top:12px;font-weight:700;color:var(--primary)">Liên hệ báo giá</div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:16px">Lịch lớp gần nhất</h4>
+        <div class="schedule-item">
+          <div class="schedule-date"><div class="day">21</div><div class="month">Th.12/2025</div></div>
+          <div class="schedule-info">
+            <h6>Workshop Cupcake Cơ Bản</h6>
+            <p>9:00 – 12:00 | Q.1, TP.HCM | Còn 4 chỗ</p>
+          </div>
+          <a href="index.html#contact" class="btn-primary-custom ms-auto" style="white-space:nowrap;padding:8px 18px;font-size:13px">Đăng ký</a>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-date"><div class="day">22</div><div class="month">Th.12/2025</div></div>
+          <div class="schedule-info">
+            <h6>Workshop Bánh Sinh Nhật</h6>
+            <p>14:00 – 18:00 | Q.1, TP.HCM | Còn 6 chỗ</p>
+          </div>
+          <a href="index.html#contact" class="btn-primary-custom ms-auto" style="white-space:nowrap;padding:8px 18px;font-size:13px">Đăng ký</a>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-date"><div class="day">28</div><div class="month">Th.12/2025</div></div>
+          <div class="schedule-info">
+            <h6>Workshop Macaron Pháp</h6>
+            <p>9:00 – 12:30 | Q.3, TP.HCM | Còn 3 chỗ</p>
+          </div>
+          <a href="index.html#contact" class="btn-primary-custom ms-auto" style="white-space:nowrap;padding:8px 18px;font-size:13px">Đăng ký</a>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="other-services">
+          <h6><i class="bi bi-grid me-2"></i>Các dịch vụ khác</h6>
+          <a href="service1.html" class="other-svc-link"><i class="bi bi-cake2"></i> Bánh Sinh Nhật</a>
+          <a href="#" class="other-svc-link"><i class="bi bi-heart"></i> Bánh Cưới</a>
+          <a href="#" class="other-svc-link"><i class="bi bi-stars"></i> Bánh Theo Yêu Cầu</a>
+          <a href="#" class="other-svc-link"><i class="bi bi-gift"></i> Hộp Quà Tặng</a>
+        </div>
+        <div class="mt-4" style="background:var(--secondary);border-radius:16px;padding:24px">
+          <h6 style="color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:10px">Đặt lịch workshop</h6>
+          <p style="font-size:13px;color:var(--accent);margin-bottom:16px">Gọi ngay để đăng ký chỗ. Lớp có thể hết nhanh cuối tuần!</p>
+          <a href="tel:0909123456" class="btn-primary-custom" style="display:flex;gap:8px;justify-content:center"><i class="bi bi-telephone"></i> 0909 123 456</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="footer-brand"><div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>Sweet Bakery</div>
+        <p class="footer-desc">Tiệm bánh handmade hàng đầu TP.HCM.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">Dịch vụ</div>
+        <ul class="footer-links">
+          <li><a href="service1.html">Bánh sinh nhật</a></li>
+          <li><a href="service2.html">Workshop làm bánh</a></li>
+          <li><a href="products.html">Xem tất cả sản phẩm</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <div class="footer-title">Liên hệ</div>
+        <ul class="footer-links">
+          <li><a href="#">📞 0909 123 456</a></li>
+          <li><a href="#">✉ order@sweetbakery.vn</a></li>
+          <li><a href="#">🏪 123 Lê Lợi, Q.1</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery. Bản quyền thuộc về Sweet Bakery Vietnam.</div></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/cart.js"></script>
+<script>
+$(document).ready(function () {
+  updateCartBadge();
+  $(window).on('scroll', function () {
+    $('#mainNav').toggleClass('scrolled', $(this).scrollTop() > 30);
+  });
+});
+</script>
+</body>
+</html>

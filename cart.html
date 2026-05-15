@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ hàng — Sweet Bakery</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
+      Sweet<span class="brand-highlight">Bakery</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html#about">Về chúng tôi</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact">Liên hệ</a></li>
+        <li class="nav-item ms-2">
+          <a class="nav-link btn-cart-nav" href="cart.html">
+            <i class="bi bi-cart3"></i><span id="cartBadge">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CART CONTENT -->
+<div class="cart-wrap">
+  <div class="container">
+    <h2 class="section-title mb-4"><i class="bi bi-cart3 me-2"></i>Giỏ hàng của bạn</h2>
+
+    <div id="cartContent"></div>
+
+    <!-- Checkout form (ẩn, hiện khi bấm Đặt hàng) -->
+    <div id="checkoutForm" class="mt-4">
+      <div class="cart-table p-4">
+        <h5 style="color:var(--accent);margin-bottom:20px;font-family:'Playfair Display',serif">
+          <i class="bi bi-truck me-2"></i>Thông tin đặt hàng
+        </h5>
+        <form id="orderForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Họ và tên *</label>
+              <input type="text" class="form-control" id="oName" placeholder="Nguyễn Văn An">
+              <div class="error-msg" id="oErrName"></div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Số điện thoại *</label>
+              <input type="text" class="form-control" id="oPhone" placeholder="0909 xxx xxx">
+              <div class="error-msg" id="oErrPhone"></div>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Địa chỉ giao hàng *</label>
+              <input type="text" class="form-control" id="oAddr" placeholder="Số nhà, tên đường, phường, quận, TP.HCM">
+              <div class="error-msg" id="oErrAddr"></div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Thời gian giao hàng</label>
+              <input type="text" class="form-control" id="oTime" placeholder="VD: 15:00 ngày 20/12/2025">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Ghi chú</label>
+              <input type="text" class="form-control" id="oNote" placeholder="Ghi chú thêm (không bắt buộc)">
+            </div>
+          </div>
+          <div class="d-flex gap-3 mt-4 flex-wrap">
+            <button type="button" class="btn-checkout" style="width:auto;padding:12px 36px" onclick="submitOrder()">
+              <i class="bi bi-check-circle me-2"></i>Xác nhận đặt hàng
+            </button>
+            <button type="button" class="btn-continue" style="width:auto;padding:11px 24px" onclick="$('#checkoutForm').hide()">
+              ← Quay lại
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center" style="border-radius:20px;border:none;padding:30px">
+      <div style="font-size:60px;margin-bottom:12px">🎉</div>
+      <h4 style="color:var(--accent);font-family:'Playfair Display',serif;margin-bottom:8px">Đặt hàng thành công!</h4>
+      <p style="color:var(--text-muted);font-size:14px;margin-bottom:20px">Cảm ơn bạn đã tin tưởng Sweet Bakery. Chúng tôi sẽ liên hệ xác nhận trong 30 phút.</p>
+      <a href="products.html" class="btn-primary-custom mx-auto">Tiếp tục mua sắm</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="footer-brand"><div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>Sweet Bakery</div>
+        <p class="footer-desc">Tiệm bánh handmade hàng đầu TP.HCM.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="footer-title">Hỗ trợ</div>
+        <ul class="footer-links">
+          <li><a href="#">📞 Hotline: 0909 123 456</a></li>
+          <li><a href="#">✉ order@sweetbakery.vn</a></li>
+          <li><a href="products.html">← Tiếp tục mua sắm</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery.</div></div>
+</footer>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="toastMsg" class="toast align-items-center text-bg-success border-0">
+    <div class="d-flex">
+      <div class="toast-body" id="toastBody"></div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
