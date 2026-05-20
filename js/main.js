@@ -7,12 +7,14 @@ $(document).ready(function () {
     /* =====================================================
        1. SWIPER BANNER
     ===================================================== */
-    new Swiper('.swiper-banner', {
-        loop: true,
-        autoplay: { delay: 4500, disableOnInteraction: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        speed: 700,
-    });
+    if ($('.swiper-banner').length > 0) {
+        new Swiper('.swiper-banner', {
+            loop: true,
+            autoplay: { delay: 4500, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            speed: 700,
+        });
+    }
 
     /* =====================================================
        2. NAVBAR: scroll shadow + smooth active highlight
@@ -191,4 +193,12 @@ function logout() {
     $('#loggedInView').hide();
     $('#loginView').show();
     $('#loginForm')[0].reset();
+}
+function showToast(msg, type) {
+    const el = document.getElementById('toastMsg');
+    if (!el) return;
+    document.getElementById('toastBody').textContent = msg;
+    el.className = 'toast align-items-center border-0 text-bg-'
+        + (type === 'success' ? 'success' : 'danger');
+    new bootstrap.Toast(el, { delay: 3000 }).show();
 }

@@ -1,12 +1,5 @@
-/* ============================================================
-   cart.js — Giỏ hàng dùng localStorage
-   Dùng chung cho mọi trang: products, detail, index...
-   Require: Bootstrap 5, jQuery
-============================================================ */
 
 const CART_KEY = 'sweetCart';
-
-/* ---------- Đọc / Ghi cart ---------- */
 function getCart() {
     return JSON.parse(localStorage.getItem(CART_KEY)) || [];
 }
@@ -14,7 +7,6 @@ function saveCart(cart) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
-/* ---------- Thêm sản phẩm ---------- */
 function addToCart(id, name, price, img) {
     const cart = getCart();
     const idx = cart.findIndex(i => i.id === id);
@@ -28,14 +20,12 @@ function addToCart(id, name, price, img) {
     showToast('🛒 Đã thêm "' + name + '" vào giỏ hàng!', 'success');
 }
 
-/* ---------- Xóa sản phẩm ---------- */
 function removeFromCart(id) {
     const cart = getCart().filter(i => i.id !== id);
     saveCart(cart);
     updateCartBadge();
 }
 
-/* ---------- Cập nhật số lượng ---------- */
 function updateQty(id, delta) {
     const cart = getCart();
     const idx = cart.findIndex(i => i.id === id);
@@ -46,19 +36,16 @@ function updateQty(id, delta) {
     updateCartBadge();
 }
 
-/* ---------- Tổng tiền ---------- */
 function getCartTotal() {
     return getCart().reduce((sum, i) => sum + i.price * i.qty, 0);
 }
 
-/* ---------- Cập nhật badge trên icon giỏ ---------- */
 function updateCartBadge() {
     const total = getCart().reduce((s, i) => s + i.qty, 0);
     const badge = document.getElementById('cartBadge');
     if (badge) badge.textContent = total;
 }
 
-/* ---------- Toast thông báo ---------- */
 function showToast(msg, type) {
     const el = document.getElementById('toastMsg');
     if (!el) return;
@@ -67,7 +54,6 @@ function showToast(msg, type) {
     new bootstrap.Toast(el, { delay: 2500 }).show();
 }
 
-/* ---------- Khởi tạo tự động ---------- */
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
     if (document.getElementById('cartContent')) {
@@ -75,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* ---------- Cart HTML Render Logic ---------- */
 function renderCart() {
     const cart = getCart();
     const container = $('#cartContent');

@@ -186,6 +186,7 @@ section {
 .swiper-banner .swiper-slide {
     display: flex;
     align-items: center;
+    margin-left: 5px;
 }
 
 .banner-content {
