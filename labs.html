@@ -5,154 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab Thực Hành — Sweet Bakery</title>
 
-  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS (Dùng chung style của web) -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
-  
-  <style>
-    /* ============================================================
-       CSS TÙY CHỈNH CHO TRANG LABS
-    ============================================================ */
-    .lab-page-hero {
-      background: linear-gradient(135deg, #FDF0EB 0%, #FDF7F4 100%);
-      padding: 140px 0 60px;
-      text-align: center;
-    }
-    
-    .lab-section {
-      padding: 50px 0 90px;
-      background: var(--bg); /* Nền kem sáng */
-    }
-
-    /* Thiết kế Box (Card) dạng chiếc hộp bánh */
-    .lab-card {
-      background: #fff;
-      border-radius: 24px;
-      padding: 30px 24px;
-      border: 2px solid var(--border); /* Viền màu hồng nhạt */
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(200, 97, 74, 0.05); /* Bóng mờ tinh tế */
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .lab-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(200, 97, 74, 0.15);
-      border-color: var(--primary-light);
-    }
-
-    /* Tiêu đề Lab */
-    .lab-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--accent); /* Nâu đen */
-      margin-bottom: 20px;
-      font-weight: 700;
-      position: relative;
-      padding-bottom: 12px;
-    }
-
-    /* Gạch chân màu hồng làm điểm nhấn */
-    .lab-title::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 45px;
-      height: 3px;
-      background-color: var(--primary); /* Đỏ đất/Hồng đậm */
-      border-radius: 2px;
-    }
-
-    /* Danh sách bài tập */
-    .lab-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 24px 0;
-      flex: 1;
-    }
-
-    .lab-list li {
-      margin-bottom: 12px;
-    }
-
-    .lab-list a {
-      color: var(--text-muted); /* Xám ấm */
-      font-size: 14.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .lab-list a i {
-      color: var(--secondary); /* Hồng nhạt */
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    /* Hiệu ứng hover cho link */
-    .lab-list a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-      text-decoration-color: var(--primary-light);
-      text-underline-offset: 4px;
-    }
-    
-    .lab-list a:hover i {
-      color: var(--primary);
-    }
-
-    /* Nút Xem chi tiết */
-    .btn-lab {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 30px;
-      padding: 10px 24px;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      transition: all 0.3s ease;
-      display: block;
-      width: 100%;
-    }
-
-    .btn-lab:hover {
-      background: var(--accent); /* Nâu đậm */
-      color: #fff;
-    }
-  </style>
+  <link rel="stylesheet" href="css/labs.css">
 </head>
 <body>
 
-<!-- ============================================================
-     NAVBAR
-============================================================ -->
 <nav class="navbar navbar-expand-lg" id="mainNav">
   <div class="container">
 
-    <!-- Logo bên trái -->
     <a class="navbar-brand" href="index.html">
       <div class="nav-logo-icon"><i class="bi bi-cake2"></i></div>
       Sweet<span class="brand-highlight">Bakery</span>
     </a>
 
-    <!-- Hamburger mobile -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Menu bên phải -->
     <div class="collapse navbar-collapse" id="navMenu">
       <ul class="navbar-nav ms-auto align-items-center gap-1">
         <li class="nav-item"><a class="nav-link" href="index.html#about">Về chúng tôi</a></li>
@@ -171,9 +45,6 @@
   </div>
 </nav>
 
-<!-- ============================================================
-     HERO SECTION
-============================================================ -->
 <div class="lab-page-hero">
   <div class="container">
     <div class="divider-candy justify-content-center"><span></span><em>👩‍💻</em><span></span></div>
@@ -182,113 +53,101 @@
   </div>
 </div>
 
-<!-- ============================================================
-     GRID 8 BÀI LAB
-============================================================ -->
 <section class="lab-section">
   <div class="container">
     <div class="row g-4">
       
-      <!-- Lab01: HTML -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab01: HTML</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab1_3</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab1_4</a></li>
+            <li><a href="baitap-labs/Lab01/Vi_du/lab1.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab1_1</a></li>
+            <li><a href="baitap-labs/Lab01/Vi_du/lab1.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab1_2</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab01/Vi_du/lab1.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab02: Table & List -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab02: Table & List</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab2_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab2_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab2_3</a></li>
+            <li><a href="baitap-labs/Lab02/Vi_du_Lab01/lab2.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab2_1</a></li>
+            <li><a href="baitap-labs/Lab02/Vi_du_Lab01/lab2.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab2_2</a></li>
+            <li><a href="baitap-labs/Lab02/Vi_du_Lab01/lab2.3.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab2_3</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab02/Vi_du_Lab01/lab2.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab03: Frame & Form -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab03: Frame & Form</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab3_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab3_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab3_3</a></li>
+            <li><a href="baitap-labs/Lab03/Vi_du/lab3.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab3_1</a></li>
+            <li><a href="baitap-labs/Lab03/Vi_du/lab3.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab3_2</a></li>
+            <li><a href="baitap-labs/Lab03/Vi_du/lab3.3.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab3_3</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab03/Vi_du/lab3.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab04: CSS cơ bản -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab04: CSS cơ bản</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab4_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab4_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab4_3</a></li>
+            <li><a href="baitap-labs/Lab04/Vi_du/lab4.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab4_1</a></li>
+            <li><a href="baitap-labs/Lab04/Vi_du/lab4.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab4_2</a></li>
+            <li><a href="baitap-labs/Lab04/Vi_du/lab4.3.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab4_3</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab04/Vi_du/lab4.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab05: Các thuộc tính CSS -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab05: Các thuộc tính CSS</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab5_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab5_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab5_3</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab5_4</a></li>
+            <li><a href="baitap-labs/Lab05/Vi_du/lab5.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab5_1</a></li>
+            <li><a href="baitap-labs/Lab05/Bai_2/lab5.3.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab5_3</a></li>
+            <li><a href="baitap-labs/Lab05/Bai_2/lab5.4.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab5_4</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab05/Vi_du/lab5.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab06: Xây dựng layout responsive bằng CSS -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab06: Xây dựng layout responsive bằng CSS</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab6_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab6_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab6_3</a></li>
+            <li><a href="baitap-labs/Lab06/Bai_2_Minh_hoa_layout/lab6.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab6_1</a></li>
+            <li><a href="baitap-labs/Lab06/Bai_2_Minh_hoa_layout/lab6.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab6_2</a></li>
+            <li><a href="baitap-labs/Lab06/Bai_2_Minh_hoa_layout/lab6.3.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab6_3</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab06/Bai_2_Minh_hoa_layout/lab6.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab07: Javascript -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab07: Javascript</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab7_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab7_2</a></li>
+            <li><a href="baitap-labs/Lab07/demo_bai_2/lab7.1.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab7_1</a></li>
+            <li><a href="baitap-labs/Lab07/demo_bai_2/lab7.2.html" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab7_2</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="baitap-labs/Lab07/demo_bai_2/lab7.1.html" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
-      <!-- Lab08: Javascript nâng cao -->
       <div class="col-12 col-md-6 col-lg-3">
         <div class="lab-card">
           <h3 class="lab-title">Lab08: Javascript nâng cao</h3>
           <ul class="lab-list">
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab8_1</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab8_2</a></li>
-            <li><a href="#"><i class="bi bi-file-earmark-code-fill"></i> Lab8_3</a></li>
+            <li><a href="#" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab8_1</a></li>
+            <li><a href="#" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab8_2</a></li>
+            <li><a href="#" target="_blank"><i class="bi bi-file-earmark-code-fill"></i> Lab8_3</a></li>
           </ul>
-          <a href="#" class="btn-lab">Xem chi tiết</a>
+          <a href="#" target="_blank" class="btn-lab">Xem chi tiết</a>
         </div>
       </div>
 
@@ -296,9 +155,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER (Giữ nguyên phong cách trang chủ)
-============================================================ -->
 <footer id="footer">
   <div class="container">
     <div class="row g-4">
@@ -335,7 +191,6 @@
   <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery. Bản quyền thuộc về Sweet Bakery Vietnam.</div></div>
 </footer>
 
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="js/cart.js"></script>

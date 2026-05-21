@@ -5,22 +5,22 @@ $(document).ready(function () {
     $('#btnModalSubmit').on('click', function () {
         let valid = true;
 
-        // Ẩn hết lỗi cũ
+
         $('.modal-error').hide();
 
-        // Kiểm tra Họ tên
+
         if ($('#mName').val().trim() === '') {
             $('#mErrName').show();
             valid = false;
         }
 
-        // Kiểm tra Số điện thoại
+
         if ($('#mPhone').val().trim() === '') {
             $('#mErrPhone').show();
             valid = false;
         }
 
-        // Kiểm tra Email định dạng hợp lệ
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const emailVal = $('#mEmail').val().trim();
         if (!emailRegex.test(emailVal)) {
@@ -28,15 +28,15 @@ $(document).ready(function () {
             valid = false;
         }
 
-        // Kiểm tra ít nhất 1 checkbox được chọn
+
         if ($('.svc-check:checked').length === 0) {
             $('#mErrSvc').show();
             valid = false;
         }
 
-        if (!valid) return; // Dừng nếu còn lỗi
+        if (!valid) return;
 
-        // Thành công
+
         bootstrap.Modal.getInstance(document.getElementById('serviceModal')).hide();
         $('#modalForm')[0].reset();
         if (typeof showToast === 'function') {
@@ -47,7 +47,7 @@ $(document).ready(function () {
     /* =====================================================
        5. CONTACT FORM VALIDATION (jQuery Validate)
     ===================================================== */
-    // Thêm rule custom: không chứa số
+
     $.validator.addMethod('noDigits', function (value) {
         return !/\d/.test(value);
     }, 'Họ tên không được chứa ký tự số.');
@@ -72,7 +72,7 @@ $(document).ready(function () {
             if (typeof showToast === 'function') showToast('✅ Tin nhắn đã gửi thành công! Chúng tôi sẽ phản hồi sớm.', 'success');
             $('#contactForm')[0].reset();
             $('#contactForm .is-valid').removeClass('is-valid');
-            return false; // Không submit thật vì không có backend
+            return false;
         }
     });
 });

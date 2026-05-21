@@ -1,18 +1,10 @@
-/* ============================================================
-   CSS VARIABLES — Chỉnh màu ở đây là đổi toàn site
-============================================================ */
 :root {
     --primary: #C8614A;
-    /* Nâu đỏ đất — màu chủ đạo */
     --primary-light: #E8856A;
     --secondary: #F5C9B8;
-    /* Hồng nhạt */
     --accent: #4A2C2A;
-    /* Nâu đậm */
     --gold: #C9944A;
-    /* Vàng bánh */
     --bg: #FDF7F4;
-    /* Trắng kem */
     --white: #FFFFFF;
     --text: #2E1A16;
     --text-muted: #9C7B6E;
@@ -20,9 +12,6 @@
     --section-gap: 90px;
 }
 
-/* ============================================================
-   RESET & BASE
-============================================================ */
 * {
     box-sizing: border-box;
 }
@@ -56,7 +45,6 @@ img {
     max-width: 100%;
 }
 
-/* Section padding chuẩn */
 section {
     padding: var(--section-gap) 0;
 }
@@ -94,9 +82,6 @@ section {
     font-size: 18px;
 }
 
-/* ============================================================
-   NAVBAR
-============================================================ */
 #mainNav {
     position: fixed;
     top: 0;
@@ -170,12 +155,8 @@ section {
     margin-left: 4px;
 }
 
-/* ============================================================
-   BANNER / CAROUSEL
-============================================================ */
 #banner {
     padding-top: 72px;
-    /* bù navbar fixed */
     background: linear-gradient(135deg, #FDF0EB 0%, #FDF7F4 100%);
 }
 
@@ -301,7 +282,6 @@ section {
     color: var(--gold);
 }
 
-/* Search form trên banner */
 .banner-search {
     background: #fff;
     border-radius: 50px;
@@ -341,9 +321,6 @@ section {
     background: var(--primary) !important;
 }
 
-/* ============================================================
-   ABOUT SECTION
-============================================================ */
 #about {
     background: #fff;
 }
@@ -402,9 +379,6 @@ section {
     box-shadow: 0 8px 24px rgba(200, 97, 74, .3);
 }
 
-/* ============================================================
-   SERVICES SECTION
-============================================================ */
 #services {
     background: var(--bg);
 }
@@ -480,9 +454,6 @@ section {
     gap: 8px;
 }
 
-/* ============================================================
-   PORTFOLIO SECTION
-============================================================ */
 #portfolio {
     background: #fff;
 }
@@ -522,7 +493,6 @@ section {
     margin-bottom: 10px;
 }
 
-/* Carousel testimonial */
 #testimonialCarousel .carousel-item {
     padding: 10px 0 20px;
 }
@@ -560,9 +530,6 @@ section {
     background-color: var(--primary) !important;
 }
 
-/* ============================================================
-   PRICING SECTION
-============================================================ */
 #pricing {
     background: var(--bg);
 }
@@ -684,9 +651,6 @@ section {
     border-color: var(--accent);
 }
 
-/* ============================================================
-   CONTACT SECTION
-============================================================ */
 #contact {
     background: #fff;
 }
@@ -750,7 +714,6 @@ section {
     margin: 4px 0;
 }
 
-/* Contact form horizontal */
 .contact-form-wrap {
     background: var(--bg);
     border-radius: 18px;
@@ -763,7 +726,6 @@ section {
     font-size: 1.2rem;
 }
 
-/* Horizontal form: label bên trái, input bên phải */
 .form-control:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(200, 97, 74, .1);
@@ -790,9 +752,6 @@ section {
     margin-top: 4px;
 }
 
-/* ============================================================
-   FOOTER
-============================================================ */
 #footer {
     background: var(--accent);
     color: rgba(255, 255, 255, .75);
@@ -873,9 +832,6 @@ section {
     font-size: 12px;
 }
 
-/* ============================================================
-   MODAL FORM
-============================================================ */
 .modal-header {
     background: var(--primary);
     color: #fff;
@@ -904,9 +860,6 @@ section {
     display: none;
 }
 
-/* ============================================================
-   PRODUCT CARDS (cho section sản phẩm nổi bật)
-============================================================ */
 #products {
     background: var(--bg);
 }
@@ -985,19 +938,10 @@ section {
     color: var(--primary);
 }
 
-/* ============================================================
-   SCROLL HIGHLIGHT NAV
-============================================================ */
-/* handled by JS */
-
-/* Smooth scroll offset for fixed nav */
 [id] {
     scroll-margin-top: 80px;
 }
 
-/* ============================================================
-   UTILITY & INLINE EXTRACTED CLASSES
-============================================================ */
 .brand-highlight {
     color: var(--gold);
 }
@@ -1024,9 +968,6 @@ section {
     z-index: 9999;
 }
 
-/* ============================================================
-   CART PAGE
-============================================================ */
 .cart-wrap {
     padding: 110px 0 80px;
     background: var(--bg);
@@ -1215,9 +1156,6 @@ section {
     color: var(--accent);
 }
 
-/* ============================================================
-   PRODUCTS PAGE
-============================================================ */
 .page-hero {
     background: linear-gradient(135deg, #FDF0EB 0%, #FDF7F4 100%);
     padding: 120px 0 50px;
@@ -1330,9 +1268,6 @@ section {
     color: var(--text-muted);
 }
 
-/* ============================================================
-   LOGIN PAGE
-============================================================ */
 .login-wrap {
     max-width: 440px;
     width: 100%;
@@ -1464,9 +1399,6 @@ section {
     margin: 0 auto 14px;
 }
 
-/* ============================================================
-   SERVICES PAGES
-============================================================ */
 .service-hero {
     padding: 120px 0 60px;
     background: linear-gradient(135deg, #FDF0EB 0%, #FDF7F4 100%);

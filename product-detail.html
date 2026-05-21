@@ -147,8 +147,6 @@
   </div>
   <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery.</div></div>
 </footer>
-
-<!-- Toast -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
   <div id="toastMsg" class="toast align-items-center text-bg-success border-0">
     <div class="d-flex">
@@ -162,7 +160,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="js/cart.js"></script>
 <script>
-// Dữ liệu sản phẩm (dùng chung với products.html)
 const PRODUCTS = {
   1: { id:1, name:'Bánh Sinh Nhật Dâu Tây', cat:'Sinh nhật', price:245000, oldPrice:320000,
        img:'images/products/banh-sinh-nhat-dau-tay.jpg',
@@ -208,7 +205,6 @@ $(document).ready(function () {
     $('#mainNav').toggleClass('scrolled', $(this).scrollTop() > 30);
   });
 
-  // Đọc ID từ URL
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id')) || 1;
   const p = PRODUCTS[id];
@@ -218,11 +214,10 @@ $(document).ready(function () {
     return;
   }
 
-  // Breadcrumb
+  // 
   $('#bcName').text(p.name);
   document.title = p.name + ' — Sweet Bakery';
 
-  // Render chi tiết
   const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
   const priceHtml = p.oldPrice
     ? `${p.price.toLocaleString('vi-VN')}đ <del style="font-size:1rem;color:var(--text-muted);font-weight:400">${p.oldPrice.toLocaleString('vi-VN')}đ</del>`
@@ -266,7 +261,6 @@ $(document).ready(function () {
     </div>
   `);
 
-  // Qty buttons
   let qty = 1;
   $('#qtyMinus').on('click', function () { if (qty > 1) { qty--; $('#qtyNum').text(qty); } });
   $('#qtyPlus').on('click', function () { qty++; $('#qtyNum').text(qty); });
@@ -276,7 +270,6 @@ $(document).ready(function () {
     for (let i = 0; i < q; i++) addToCart(id, name, price, img);
   };
 
-  // Related: lấy 4 sản phẩm khác
   const related = Object.values(PRODUCTS).filter(x => x.id !== id).slice(0, 4);
   let relHtml = '';
   related.forEach(r => {

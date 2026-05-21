@@ -4,9 +4,6 @@ const DEMO_ACCOUNTS = [
 ];
 
 $(document).ready(function () {
-    /* =====================================================
-       1. SWIPER BANNER
-    ===================================================== */
     if ($('.swiper-banner').length > 0) {
         new Swiper('.swiper-banner', {
             loop: true,
@@ -16,18 +13,13 @@ $(document).ready(function () {
         });
     }
 
-    /* =====================================================
-       2. NAVBAR: scroll shadow + smooth active highlight
-    ===================================================== */
     $(window).on('scroll', function () {
-        // Shadow khi scroll
         if ($(this).scrollTop() > 30) {
             $('#mainNav').addClass('scrolled');
         } else {
             $('#mainNav').removeClass('scrolled');
         }
 
-        // Highlight menu theo section đang xem
         const sections = ['about', 'services', 'portfolio', 'pricing', 'contact'];
         let current = '';
         sections.forEach(id => {
@@ -42,9 +34,6 @@ $(document).ready(function () {
         }
     });
 
-    /* =====================================================
-       3. MODAL LOGIC (Từ modal.js)
-    ===================================================== */
     $(document).on('click', '[data-bs-target="#serviceModal"]', function () {
         const service = $(this).data('service');
         $('.svc-check').prop('checked', false);
@@ -54,9 +43,6 @@ $(document).ready(function () {
         $('.modal-error').hide();
     });
 
-    /* =====================================================
-       4. PRODUCTS FILTER & SEARCH (Từ products.html)
-    ===================================================== */
     $('.filter-btn').on('click', function () {
         $('.filter-btn').removeClass('active');
         $(this).addClass('active');
@@ -79,9 +65,6 @@ $(document).ready(function () {
         }
     }
 
-    /* =====================================================
-       5. LOGIN & REGISTER LOGIC (Từ login.html)
-    ===================================================== */
     if ($('#loginForm').length) {
         const session = JSON.parse(localStorage.getItem('sweetSession'));
         if (session) showLoggedIn(session.name);
@@ -143,9 +126,6 @@ $(document).ready(function () {
     }
 });
 
-/* =====================================================
-   6. SEARCH
-===================================================== */
 function doSearch() {
     const keyword = $('#searchInput').val().trim();
     if (keyword) {
@@ -171,9 +151,6 @@ function filterSearch() {
     $('#searchNotice').text(`Tìm thấy ${count} sản phẩm cho "${kw}"`).show();
 }
 
-/* =====================================================
-   7. LOGIN GLOBALS
-===================================================== */
 function showLoggedIn(name) {
     $('#loginView, #registerView').hide();
     $('#userDisplayName').text(name);

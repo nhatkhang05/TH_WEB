@@ -67,7 +67,6 @@
       text-decoration: none; display: flex; align-items: center; gap: 4px;
     }
     .btn-detail:hover { border-color: var(--primary); color: var(--primary); }
-    /* Badge sale */
     .product-wrap { position: relative; }
     .badge-sale {
       position: absolute; top: 12px; left: 12px;
@@ -81,13 +80,11 @@
       font-size: 11px; font-weight: 700;
       padding: 3px 10px; border-radius: 10px; z-index: 1;
     }
-    /* Search result notice */
     #searchNotice { display: none; padding: 10px 0; font-size: 14px; color: var(--text-muted); }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg" id="mainNav">
   <div class="container">
     <a class="navbar-brand" href="index.html">
@@ -114,13 +111,11 @@
   </div>
 </nav>
 
-<!-- PAGE HERO -->
 <div class="page-hero text-center">
   <div class="container">
     <div class="divider-candy justify-content-center"><span></span><em>🎂</em><span></span></div>
     <h1 class="section-title">Sản phẩm của chúng tôi</h1>
     <p class="section-sub">Hơn 200 loại bánh handmade — nguyên liệu sạch, không chất bảo quản</p>
-    <!-- Search inline -->
     <div class="banner-search d-inline-flex">
       <input type="text" id="searchInput" placeholder="Tìm kiếm bánh...">
       <button onclick="filterSearch()"><i class="bi bi-search me-1"></i>Tìm</button>
@@ -128,7 +123,6 @@
   </div>
 </div>
 
-<!-- FILTER BAR -->
 <div class="filter-bar">
   <div class="container">
     <div class="d-flex gap-2 flex-wrap">
@@ -143,13 +137,11 @@
   </div>
 </div>
 
-<!-- PRODUCTS GRID -->
 <section class="products-section">
   <div class="container">
     <div id="searchNotice"></div>
     <div class="row g-4" id="productGrid">
 
-      <!-- === SINH NHẬT === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="sinh-nhat" data-name="bánh sinh nhật dâu tây">
         <div class="badge-new">Mới</div>
         <div class="product-card">
@@ -206,7 +198,6 @@
         </div>
       </div>
 
-      <!-- === CUPCAKE === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="cupcake" data-name="cupcake chocolate">
         <div class="badge-new">Mới</div>
         <div class="product-card">
@@ -244,7 +235,6 @@
         </div>
       </div>
 
-      <!-- === BÁNH CƯỚI === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="cuoi" data-name="bánh cưới 3 tầng">
         <div class="product-card">
           <img src="images/products/banh-cuoi-3-tang-classic.jpg" alt="Bánh cưới">
@@ -263,7 +253,6 @@
         </div>
       </div>
 
-      <!-- === MACARON === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="macaron" data-name="macaron pháp">
         <div class="product-card">
           <img src="images/products/macaron-phap-mix-8-vi.jpg" alt="Macaron">
@@ -282,7 +271,6 @@
         </div>
       </div>
 
-      <!-- === MOUSSE === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="mousse" data-name="tiramisu">
         <div class="badge-sale">Hot</div>
         <div class="product-card">
@@ -302,7 +290,6 @@
         </div>
       </div>
 
-      <!-- === HỘP QUÀ === -->
       <div class="col-6 col-md-4 col-lg-3 product-wrap" data-cat="qua" data-name="hộp quà tặng sinh nhật">
         <div class="product-card">
           <img src="images/products/gift-box-sinh-nhat-deluxe.jpg" alt="Hộp quà">
@@ -321,11 +308,10 @@
         </div>
       </div>
 
-    </div><!-- end row -->
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="footer">
   <div class="container">
     <div class="row g-4">
@@ -369,7 +355,6 @@
   <div class="footer-bottom"><div class="container">© 2025 Sweet Bakery. Bản quyền thuộc về Sweet Bakery Vietnam.</div></div>
 </footer>
 
-<!-- Toast -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
   <div id="toastMsg" class="toast align-items-center text-bg-success border-0">
     <div class="d-flex">
@@ -386,12 +371,10 @@
 $(document).ready(function () {
   updateCartBadge();
 
-  // Navbar scroll
   $(window).on('scroll', function () {
     $('#mainNav').toggleClass('scrolled', $(this).scrollTop() > 30);
   });
 
-  // Filter by category
   $('.filter-btn').on('click', function () {
     $('.filter-btn').removeClass('active');
     $(this).addClass('active');
@@ -405,7 +388,6 @@ $(document).ready(function () {
     $('#searchNotice').hide();
   });
 
-  // Search từ URL param
   const params = new URLSearchParams(window.location.search);
   const q = params.get('search');
   if (q) {
